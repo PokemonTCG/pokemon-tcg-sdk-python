@@ -1,5 +1,7 @@
 # Pokémon TCG SDK
 
+[![PyPI version](https://badge.fury.io/py/pokemontcgsdk.svg)](https://badge.fury.io/py/pokemontcgsdk)
+
 This is the Pokémon TCG SDK Python implementation. It is a wrapper around the Pokémon TCG API of [pokemontcg.io](http://pokemontcg.io/).
 
 ## Requirements
