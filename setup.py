@@ -32,11 +32,11 @@ download_url="{}/tarball/{}".format(url, __version__)
 setup(
     name=__pypi_packagename__,
     version=__version__,
-    description='Magic: The Gathering SDK for magicthegathering.io',
+    description='Pokemon TCG SDK for pokemontcg.io',
     long_description='''
-Magic: The Gathering SDK is a python wrapper around the MTG API located at magicthegathering.io
+Pokemon TCG SDK is a python wrapper around the Pokemon TCG API located at pokemontcg.io
 ''',
-    keywords='mtg sdk magic gathering gatherer api rest',
+    keywords='pokemon tcg sdk trading card game api rest',
     author='Andrew Backes',
     author_email='backes.andrew@gmail.com',
     url=url,
@@ -63,7 +63,7 @@ Magic: The Gathering SDK is a python wrapper around the MTG API located at magic
     entry_points={
         'console_scripts': [
             # add cli scripts here in this form:
-            # 'mtgsdk=mtgsdk.cli:main',
+            # 'pokemontcgsdk=pokemontcgsdk.cli:main',
         ],
     },
 )
