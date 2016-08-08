@@ -1,6 +1,10 @@
 # Pokémon TCG SDK
 
 [![PyPI version](https://badge.fury.io/py/pokemontcgsdk.svg)](https://badge.fury.io/py/pokemontcgsdk)
+[![Build Status](https://travis-ci.org/PokemonTCG/pokemon-tcg-sdk-python.svg?branch=master)](https://travis-ci.org/PokemonTCG/pokemon-tcg-sdk-python)
+[![Requirements Status](https://requires.io/github/PokemonTCG/pokemon-tcg-sdk-python/requirements.svg?branch=master)](https://requires.io/github/PokemonTCG/pokemon-tcg-sdk-python/requirements/?branch=master)
+[![Code Climate](https://codeclimate.com/github/PokemonTCG/pokemon-tcg-sdk-python/badges/gpa.svg)](https://codeclimate.com/github/PokemonTCG/pokemon-tcg-sdk-python)
+[![Coverage Status](https://coveralls.io/repos/github/PokemonTCG/pokemon-tcg-sdk-python/badge.svg?branch=master)](https://coveralls.io/github/PokemonTCG/pokemon-tcg-sdk-python?branch=master)
 
 This is the Pokémon TCG SDK Python implementation. It is a wrapper around the Pokémon TCG API of [pokemontcg.io](http://pokemontcg.io/).
 
