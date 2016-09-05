@@ -46,6 +46,7 @@ Import (Card and Set will be most used)
     subtype
     supertype
     ability
+    ancient_trait
     hp
     number
     artist

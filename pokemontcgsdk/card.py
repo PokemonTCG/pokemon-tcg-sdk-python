@@ -35,6 +35,7 @@ class Card(object):
         self.weaknesses = response_dict.get('weaknesses')
         self.resistances = response_dict.get('resistances')
         self.ability = response_dict.get('ability')
+        self.ancient_trait = response_dict.get('ancientTrait')
 
     @staticmethod
     def find(id):
