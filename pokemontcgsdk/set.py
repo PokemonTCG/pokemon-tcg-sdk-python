@@ -18,9 +18,9 @@ class Set(object):
         self.name = response_dict.get('name')
         self.code = response_dict.get('code')
         self.series = response_dict.get('series')
-        self.total_cards = response_dict.get('totalCards')
-        self.standard_legal = response_dict.get('standardLegal')
-        self.release_date = response_dict.get('releaseDate')
+        self.totalCards = response_dict.get('totalCards')
+        self.standardLegal = response_dict.get('standardLegal')
+        self.releaseDate = response_dict.get('releaseDate')
 
     @staticmethod
     def find(id):
