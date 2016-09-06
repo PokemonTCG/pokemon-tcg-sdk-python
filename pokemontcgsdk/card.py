@@ -17,8 +17,8 @@ class Card(object):
     def __init__(self, response_dict={}):
         self.name = response_dict.get('name')
         self.id = response_dict.get('id')
-        self.national_pokedex_number = response_dict.get('nationalPokedexNumber')
-        self.image_url = response_dict.get('imageUrl')
+        self.nationalPokedexNumber = response_dict.get('nationalPokedexNumber')
+        self.imageUrl = response_dict.get('imageUrl')
         self.types = response_dict.get('types')
         self.subtype = response_dict.get('subtype')
         self.supertype = response_dict.get('supertype')
@@ -28,14 +28,14 @@ class Card(object):
         self.rarity = response_dict.get('rarity')
         self.series = response_dict.get('series')
         self.set = response_dict.get('set')
-        self.set_code = response_dict.get('setCode')
-        self.retreat_cost = response_dict.get('retreatCost')
+        self.setCode = response_dict.get('setCode')
+        self.retreatCost = response_dict.get('retreatCost')
         self.text = response_dict.get('text')
         self.attacks = response_dict.get('attacks')
         self.weaknesses = response_dict.get('weaknesses')
         self.resistances = response_dict.get('resistances')
         self.ability = response_dict.get('ability')
-        self.ancient_trait = response_dict.get('ancientTrait')
+        self.ancientTrait = response_dict.get('ancientTrait')
 
     @staticmethod
     def find(id):
