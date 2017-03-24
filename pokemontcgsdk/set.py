@@ -20,7 +20,7 @@ class Set(object):
         self.series = response_dict.get('series')
         self.total_cards = response_dict.get('totalCards')
         self.standard_legal = response_dict.get('standardLegal')
-	self.expanded_legal = response_dict.get('expandedLegal')
+        self.expanded_legal = response_dict.get('expandedLegal')
         self.release_date = response_dict.get('releaseDate')
 
     @staticmethod
