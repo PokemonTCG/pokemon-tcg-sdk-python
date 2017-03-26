@@ -68,6 +68,7 @@ Import (Card and Set will be most used)
     series
     total_cards
     standard_legal
+    expanded_legal
     release_date
 
 ### Functions Available

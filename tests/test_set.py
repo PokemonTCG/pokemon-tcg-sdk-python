@@ -22,6 +22,7 @@ class TestSet(unittest.TestCase):
             self.assertEqual('XY', set.series)
             self.assertEqual(114, set.total_cards)
             self.assertEqual(True, set.standard_legal)
+            self.assertEqual(True, set.expanded_legal)
             self.assertEqual('08/03/2016', set.release_date)
             
     def test_where_filters_on_name(self):
