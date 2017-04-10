@@ -19,6 +19,7 @@ class Card(object):
         self.id = response_dict.get('id')
         self.national_pokedex_number = response_dict.get('nationalPokedexNumber')
         self.image_url = response_dict.get('imageUrl')
+        self.image_url_hi_res = response_dict.get('imageUrlHiRes')
         self.types = response_dict.get('types')
         self.subtype = response_dict.get('subtype')
         self.supertype = response_dict.get('supertype')
