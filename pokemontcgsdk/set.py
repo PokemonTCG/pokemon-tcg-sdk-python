@@ -17,11 +17,14 @@ class Set(object):
     def __init__(self, response_dict={}):
         self.name = response_dict.get('name')
         self.code = response_dict.get('code')
+        self.ptcgo_code = response_dict.get('ptcgoCode')
         self.series = response_dict.get('series')
         self.total_cards = response_dict.get('totalCards')
         self.standard_legal = response_dict.get('standardLegal')
         self.expanded_legal = response_dict.get('expandedLegal')
         self.release_date = response_dict.get('releaseDate')
+        self.symbol_url = response_dict.get('symbolUrl')
+        self.logo_url = respnse_dict.get('logoUrl')
 
     @staticmethod
     def find(id):
