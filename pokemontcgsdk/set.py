@@ -24,7 +24,7 @@ class Set(object):
         self.expanded_legal = response_dict.get('expandedLegal')
         self.release_date = response_dict.get('releaseDate')
         self.symbol_url = response_dict.get('symbolUrl')
-        self.logo_url = respnse_dict.get('logoUrl')
+        self.logo_url = response_dict.get('logoUrl')
 
     @staticmethod
     def find(id):
