@@ -17,4 +17,4 @@ class TestType(unittest.TestCase):
         with vcr.use_cassette('fixtures/types.yaml'):
             types = Type.all()
             
-            self.assertEqual(["Colorless","Dark","Darkness","Dragon","Fairy","Fighting","Fire","Grass","Lightning","Metal","Psychic","Water"], types)
+            self.assertEqual(["Colorless","Darkness","Dragon","Fairy","Fighting","Fire","Grass","Lightning","Metal","Psychic","Water"], types)
