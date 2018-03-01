@@ -61,16 +61,20 @@ Import (Card and Set will be most used)
     attacks
     weaknesses
     resistances
+    evolves_from
 
 #### Set
 
     code
+    ptcgo_code
     name
     series
     total_cards
     standard_legal
     expanded_legal
     release_date
+    symbol_url
+    logo_url
 
 ### Functions Available
 
