@@ -8,7 +8,7 @@
 # http://www.opensource.org/licenses/MIT-license
 # Copyright (c) 2016, Andrew Backes <backes.andrew@gmail.com>
 
-__version__ = "1.4.0"
+__version__ = "1.4.1"
 __pypi_packagename__ = "pokemontcgsdk"
 __github_username__ = "PokemonTCG"
 __github_reponame__ = "pokemon-tcg-sdk-python"
