@@ -25,6 +25,7 @@ class Set(object):
         self.release_date = response_dict.get('releaseDate')
         self.symbol_url = response_dict.get('symbolUrl')
         self.logo_url = response_dict.get('logoUrl')
+        self.updated_at = response_dict.get('updatedAt')
 
     @staticmethod
     def find(id):

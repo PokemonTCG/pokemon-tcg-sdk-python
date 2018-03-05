@@ -35,12 +35,12 @@ class QueryBuilder(object):
         Args:
             **kwargs: Arbitrary keyword arguments.
         Returns:
-            QueryBuilder: Instance of the QueryBuilder
+            list of object: List of resource objects
         """
         for key, value in kwargs.items():
             self.params[key] = value
 
-        return self
+        return self.all()
 
     def all(self):
         """Get all resources, automatically paging through data

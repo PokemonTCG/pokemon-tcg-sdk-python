@@ -56,6 +56,7 @@ Import (Card and Set will be most used)
     set
     set_code
     retreat_cost
+    converted_retreat_cost
     text
     types
     attacks
@@ -73,6 +74,7 @@ Import (Card and Set will be most used)
     standard_legal
     expanded_legal
     release_date
+    updated_at
     symbol_url
     logo_url
 
@@ -84,7 +86,7 @@ Import (Card and Set will be most used)
 
 #### Filter Cards via query parameters
 
-    cards = Card.where(set='generations').where(supertype='pokemon').all()
+    cards = Card.where(set='generations', supertype='pokemon')
     
 #### Find all cards (will take awhile)
 
@@ -92,7 +94,7 @@ Import (Card and Set will be most used)
     
 #### Get all cards, but only a specific page of data
 
-    cards = Card.where(page=5).where(pageSize=100).all()
+    cards = Card.where(page=5, pageSize=100)
     
 #### Find a set by code
 
@@ -100,7 +102,7 @@ Import (Card and Set will be most used)
     
 #### Filter sets via query parameters
 
-    sets = Set.where(standardLegal=true).all()
+    sets = Set.where(standardLegal=true)
     
 #### Get all Sets
 
@@ -125,3 +127,9 @@ Import (Card and Set will be most used)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## Developing
+
+### Running Tests
+
+    python -m unittest discover -s tests/

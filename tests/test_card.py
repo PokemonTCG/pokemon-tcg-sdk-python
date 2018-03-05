@@ -31,6 +31,7 @@ class TestCard(unittest.TestCase):
             self.assertEqual('Once during your turn (before your attack), you may heal 20 damage from each of your Pokémon.',card.ability['text'])
             self.assertEqual('130', card.hp)
             self.assertEqual(['Colorless', 'Colorless'], card.retreat_cost)
+            self.assertEqual(2, card.converted_retreat_cost)
             self.assertEqual('54', card.number)
             self.assertEqual('TOKIYA', card.artist)
             self.assertEqual('Rare Holo', card.rarity)
@@ -44,18 +45,16 @@ class TestCard(unittest.TestCase):
 
     def test_all_with_params_return_cards(self):
         with vcr.use_cassette('fixtures/mega_pokemon.yaml'):
-            cards = Card.where(supertype='pokemon') \
-                        .where(subtype='mega') \
-                        .all()
+            cards = Card.where(supertype='pokemon', subtype='mega')
             self.assertTrue(len(cards) >= 70)
 
     def test_all_with_page_returns_cards(self):
         with vcr.use_cassette('fixtures/all_first_page.yaml'):
-            cards = Card.where(page=1).all()
+            cards = Card.where(page=1)
             self.assertEqual(100, len(cards))
 
     def test_all_with_page_and_page_size_returns_card(self):
         with vcr.use_cassette('fixtures/all_first_page_one_card.yaml'):
-            cards = Card.where(page=1).where(pageSize=1).all()
+            cards = Card.where(page=1, pageSize=1)
             self.assertEqual(1, len(cards))
 

@@ -31,6 +31,7 @@ class Card(object):
         self.set = response_dict.get('set')
         self.set_code = response_dict.get('setCode')
         self.retreat_cost = response_dict.get('retreatCost')
+        self.converted_retreat_cost = response_dict.get('convertedRetreatCost')
         self.text = response_dict.get('text')
         self.attacks = response_dict.get('attacks')
         self.weaknesses = response_dict.get('weaknesses')

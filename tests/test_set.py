@@ -27,7 +27,7 @@ class TestSet(unittest.TestCase):
             
     def test_where_filters_on_name(self):
         with vcr.use_cassette('fixtures/filtered_sets.yaml'):
-            sets = Set.where(name='steam').all()
+            sets = Set.where(name='steam')
             
             self.assertEqual(1, len(sets))
             self.assertEqual('xy11', sets[0].code)
