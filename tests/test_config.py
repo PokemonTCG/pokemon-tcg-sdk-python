@@ -22,4 +22,4 @@ class TestConfig(unittest.TestCase):
         self.assertEqual('pokemon-tcg-sdk-python', __github_reponame__)
         
     def test_has_proper_endpoint(self):
-        self.assertEqual('https://api.pokemontcg.io/v1', __endpoint__)
+        self.assertEqual('https://api.pokemontcg.io/v2', __endpoint__)
