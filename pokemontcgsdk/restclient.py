@@ -9,6 +9,7 @@
 # Copyright (c) 2016, Andrew Backes <backes.andrew@gmail.com>
 
 import json
+import os
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 from urllib.parse import urlencode
@@ -30,7 +31,12 @@ class RestClient(object):
             request_url = "{}?{}".format(url, urlencode(params))
 
         try:
-            req = Request(request_url, headers={ 'User-Agent': 'Mozilla/5.0' })
+            headers = { 'User-Agent': 'Mozilla/5.0' }
+            api_key = os.getenv('POKEMONTCG_IO_API_KEY')
+            if api_key:
+                headers['X-Api-Key'] = api_key
+
+            req = Request(request_url, headers=headers)
             response = json.loads(urlopen(req).read().decode("utf-8"))
 
             return response

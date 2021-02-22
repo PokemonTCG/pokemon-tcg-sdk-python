@@ -10,35 +10,36 @@
 
 import json
 from pokemontcgsdk.querybuilder import QueryBuilder
+from pokemontcgsdk.set import Set
 
 class Card(object):
     RESOURCE = 'cards'
 
     def __init__(self, response_dict={}):
-        self.name = response_dict.get('name')
-        self.id = response_dict.get('id')
-        self.national_pokedex_number = response_dict.get('nationalPokedexNumber')
-        self.image_url = response_dict.get('imageUrl')
-        self.image_url_hi_res = response_dict.get('imageUrlHiRes')
-        self.types = response_dict.get('types')
-        self.subtype = response_dict.get('subtype')
-        self.supertype = response_dict.get('supertype')
-        self.hp = response_dict.get('hp')
-        self.number = response_dict.get('number')
+        self.abilities = response_dict.get('abilities')
         self.artist = response_dict.get('artist')
-        self.rarity = response_dict.get('rarity')
-        self.series = response_dict.get('series')
-        self.set = response_dict.get('set')
-        self.set_code = response_dict.get('setCode')
-        self.retreat_cost = response_dict.get('retreatCost')
-        self.converted_retreat_cost = response_dict.get('convertedRetreatCost')
-        self.text = response_dict.get('text')
+        self.ancientTrait = response_dict.get('ancientTrait')
         self.attacks = response_dict.get('attacks')
-        self.weaknesses = response_dict.get('weaknesses')
+        self.convertedRetreatCost = response_dict.get('convertedRetreatCost')
+        self.evolvesFrom = response_dict.get('evolvesFrom')
+        self.flavorText = response_dict.get('flavorText')
+        self.hp = response_dict.get('hp')
+        self.id = response_dict.get('id')
+        self.images = response_dict.get('images')
+        self.legalities = response_dict.get('legalities')
+        self.name = response_dict.get('name')
+        self.nationalPokedexNumbers = response_dict.get('nationalPokedexNumbers')
+        self.number = response_dict.get('number')
+        self.rarity = response_dict.get('rarity')
         self.resistances = response_dict.get('resistances')
-        self.ability = response_dict.get('ability')
-        self.ancient_trait = response_dict.get('ancientTrait')
-        self.evolves_from = response_dict.get('evolvesFrom')
+        self.retreatCost = response_dict.get('retreatCost')
+        self.rules = response_dict.get('rules')
+        self.set = Set(response_dict.get('set'))
+        self.subtypes = response_dict.get('subtypes')
+        self.supertype = response_dict.get('supertype')
+        self.tcgplayer = response_dict.get('tcgplayer')
+        self.types = response_dict.get('types')
+        self.weaknesses = response_dict.get('weaknesses')
 
     @staticmethod
     def find(id):

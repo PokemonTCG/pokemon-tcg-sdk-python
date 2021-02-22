@@ -8,8 +8,11 @@
 # http://www.opensource.org/licenses/MIT-license
 # Copyright (c) 2016, Andrew Backes <backes.andrew@gmail.com>
 
-__version__ = "2.0.0"
-__pypi_packagename__ = "pokemontcgsdk"
-__github_username__ = "PokemonTCG"
-__github_reponame__ = "pokemon-tcg-sdk-python"
-__endpoint__ = "https://api.pokemontcg.io/v2"
+from pokemontcgsdk.querybuilder import QueryBuilder
+
+class Rarity(object):
+    RESOURCE = 'rarities'
+
+    @staticmethod
+    def all():
+        return QueryBuilder(Rarity).array()
