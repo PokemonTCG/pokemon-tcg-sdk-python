@@ -11,24 +11,29 @@ list:
 # required for list
 no_targets__:
 
+# create a virtual environment
+.PHONY: env
+env:
+	@python3 -m venv env
+
 # install all dependencies (do not forget to create a virtualenv first)
-setup:
-	@pip install -U -e .\[tests\]
+setup: env
+	@env/bin/pip install -U -e .\[tests\]
 
 # test your application (tests in the tests/ directory)
 test: unit
 
-unit:
-	@coverage run --branch `which nosetests` -vv --with-yanc -s tests/
-	@coverage report -m --fail-under=80
+unit: env
+	@env/bin/coverage run --branch env/bin/nosetests -v --with-yanc -s tests/
+	@env/bin/coverage report -m --fail-under=80
 
 # show coverage in html format
-coverage-html: unit
-	@coverage html
+coverage-html: env unit
+	@env/bin/coverage html
 
 # run tests against all supported python versions
-tox:
-	@tox
+tox: env
+	@env/bin/tox
 
 #docs:
 	#@cd mtgsdk/docs && make html && open _build/html/index.html
