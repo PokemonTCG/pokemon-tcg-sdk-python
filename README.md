@@ -9,7 +9,7 @@
 This is the Pokémon TCG SDK Python implementation. It is a wrapper around the Pokémon TCG API of [pokemontcg.io](http://pokemontcg.io/).
 
 ## Requirements
-Python 3 is currently the only supported version for the sdk. More specifically, the package was developed using Python 3.4.
+Python 3 is currently the only supported version for the sdk. More specifically, the package was developed using Python 3.9.
 
 ## Installation
 
@@ -26,6 +26,14 @@ Import (Card and Set will be most used)
     from pokemontcgsdk import Type
     from pokemontcgsdk import Supertype
     from pokemontcgsdk import Subtype
+    from pokemontcgsdk import Rarity
+
+
+### API-Key
+
+In order to set an API Key from https://dev.pokemontcg.io, just set the environment variable:
+
+    export POKEMONTCG_IO_API_KEY='12345678-1234-1234-1234-123456789ABC'
 
 ### Classes
 
@@ -34,49 +42,49 @@ Import (Card and Set will be most used)
     Type
     Supertype
     Subtype
+    Rarity
 
 ### Properties Per Class
 
 #### Card
 
-    id
-    name
-    national_pokedex_number
-    image_url
-    image_url_hi_res
-    subtype
-    supertype
-    ability
-    ancient_trait
-    hp
-    number
+    abilities
     artist
-    rarity
-    series
-    set
-    set_code
-    retreat_cost
-    converted_retreat_cost
-    text
-    types
+    ancientTrait
     attacks
-    weaknesses
+    convertedRetreatCost
+    evolvesFrom
+    flavorText
+    hp
+    id
+    images
+    legalities
+    name
+    nationalPokedexNumbers
+    number
+    rarity
     resistances
-    evolves_from
+    retreatCost
+    rules
+    set
+    subtypes
+    supertype
+    tcgplayer
+    types
+    weaknesses
 
 #### Set
 
-    code
-    ptcgo_code
+    id
+    images
+    legalities
     name
+    printedTotal
+    ptcgoCode
+    releaseDate
     series
-    total_cards
-    standard_legal
-    expanded_legal
-    release_date
-    updated_at
-    symbol_url
-    logo_url
+    total
+    updatedAt
 
 ### Functions Available
 
@@ -86,7 +94,7 @@ Import (Card and Set will be most used)
 
 #### Filter Cards via query parameters
 
-    cards = Card.where(set='generations', supertype='pokemon')
+    cards = Card.where(q='set.name:generations supertype:pokemon')
     
 #### Find all cards (will take awhile)
 
@@ -94,7 +102,7 @@ Import (Card and Set will be most used)
     
 #### Get all cards, but only a specific page of data
 
-    cards = Card.where(page=5, pageSize=100)
+    cards = Card.where(page=5, pageSize=250)
     
 #### Find a set by code
 
@@ -102,7 +110,7 @@ Import (Card and Set will be most used)
     
 #### Filter sets via query parameters
 
-    sets = Set.where(standardLegal=true)
+    sets = Set.where(q='legalities.standard:legal')
     
 #### Get all Sets
 
@@ -120,16 +128,22 @@ Import (Card and Set will be most used)
 
     supertypes = Supertype.all()
 
+#### Get all Rarities
+
+    rarities = Rarity.all()
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/pokemon-tcg-sdk-python/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+3. Setup the development environment (`make setup`)
+4. Make, Develop, and commit your changes! (`git commit -am 'Add some feature'`)
+5. Run tests! (`make test`)
+6. Push to the branch (`git push origin my-new-feature`)
+7. Create a new Pull Request
 
 ## Developing
 
 ### Running Tests
 
-    python -m unittest discover -s tests/
+    make test
