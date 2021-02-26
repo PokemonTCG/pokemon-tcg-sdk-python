@@ -29,7 +29,7 @@ class TestCard(unittest.TestCase):
             self.assertEqual('Rare Holo', card.rarity)
             self.assertEqual('It has the power to predict the future. Its power peaks when it is protecting its Trainer.', card.flavorText)
             self.assertEqual([282], card.nationalPokedexNumbers)
-            self.assertEqual('https://prices.pokemontcg.io/tcgplayer/xy7-54', card.tcgplayer['url'])
+            self.assertEqual('https://prices.pokemontcg.io/tcgplayer/xy7-54', card.tcgplayer.url)
 
     def test_all_with_params_return_cards(self):
         with vcr.use_cassette('fixtures/mega_pokemon.yaml'):
