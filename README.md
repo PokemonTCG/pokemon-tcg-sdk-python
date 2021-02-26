@@ -35,6 +35,14 @@ In order to set an API Key from https://dev.pokemontcg.io, just set the environm
 
     export POKEMONTCG_IO_API_KEY='12345678-1234-1234-1234-123456789ABC'
 
+or configure the static RestClient instance
+
+```python
+from pokemontcgsdk import RestClient
+
+RestClient.configure('12345678-1234-1234-1234-123456789ABC')
+```
+
 ### Classes
 
     Card

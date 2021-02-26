@@ -15,8 +15,14 @@ from urllib.error import URLError, HTTPError
 from urllib.parse import urlencode
 
 class RestClient(object):
-    @staticmethod
-    def get(url, params={}):
+    api_key = None
+
+    @classmethod
+    def configure(cls, api_key):
+        cls.api_key = api_key
+
+    @classmethod
+    def get(cls, url, params={}):
         """Invoke an HTTP GET request on a url
         
         Args:
@@ -32,7 +38,7 @@ class RestClient(object):
 
         try:
             headers = { 'User-Agent': 'Mozilla/5.0' }
-            api_key = os.getenv('POKEMONTCG_IO_API_KEY')
+            api_key = cls.api_key if cls.api_key is not None else os.getenv('POKEMONTCG_IO_API_KEY')
             if api_key:
                 headers['X-Api-Key'] = api_key
 
