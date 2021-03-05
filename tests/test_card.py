@@ -1,13 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-# This file is part of pokemontcgsdk.
-# https://github.com/PokemonTCG/pokemon-tcg-sdk-python
-
-# Licensed under the MIT license:
-# http://www.opensource.org/licenses/MIT-license
-# Copyright (c) 2016, Andrew Backes <backes.andrew@gmail.com>
-
 import unittest
 import vcr
 from pokemontcgsdk import Card
@@ -39,7 +29,7 @@ class TestCard(unittest.TestCase):
             self.assertEqual('Rare Holo', card.rarity)
             self.assertEqual('It has the power to predict the future. Its power peaks when it is protecting its Trainer.', card.flavorText)
             self.assertEqual([282], card.nationalPokedexNumbers)
-            self.assertEqual('https://prices.pokemontcg.io/tcgplayer/xy7-54', card.tcgplayer['url'])
+            self.assertEqual('https://prices.pokemontcg.io/tcgplayer/xy7-54', card.tcgplayer.url)
 
     def test_all_with_params_return_cards(self):
         with vcr.use_cassette('fixtures/mega_pokemon.yaml'):

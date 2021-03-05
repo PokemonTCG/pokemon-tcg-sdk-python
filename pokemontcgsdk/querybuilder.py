@@ -1,18 +1,9 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+from dacite import from_dict
 
-# This file is part of pokemontcgsdk.
-# https://github.com/PokemonTCG/pokemon-tcg-sdk-python
-
-# Licensed under the MIT license:
-# http://www.opensource.org/licenses/MIT-license
-# Copyright (c) 2016, Andrew Backes <backes.andrew@gmail.com>
-
-import json
 from pokemontcgsdk.restclient import RestClient
 from pokemontcgsdk.config import __endpoint__
 
-class QueryBuilder(object):
+class QueryBuilder():
     def __init__(self, type):
         self.params = {}
         self.type = type
@@ -27,7 +18,7 @@ class QueryBuilder(object):
         """
         url = "{}/{}/{}".format(__endpoint__, self.type.RESOURCE, id)
         response = RestClient.get(url)['data']
-        return self.type(response)
+        return from_dict(self.type, response)
 
     def where(self, **kwargs):
         """Adds a parameter to the dictionary of query parameters
@@ -61,7 +52,7 @@ class QueryBuilder(object):
             response = RestClient.get(url, self.params)['data']
             if len(response) > 0:
                 for item in response:
-                    list.append(self.type(item))
+                    list.append(from_dict(self.type, item))
 
                 if not fetch_all:
                     break

@@ -1,13 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-# This file is part of pokemontcgsdk.
-# https://github.com/PokemonTCG/pokemon-tcg-sdk-python
-
-# Licensed under the MIT license:
-# http://www.opensource.org/licenses/MIT-license
-# Copyright (c) 2016, Andrew Backes <backes.andrew@gmail.com>
-
 import sys, os
 from setuptools import setup, find_packages
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'pokemontcgsdk'))
@@ -56,6 +46,7 @@ Pokemon TCG SDK is a python wrapper around the Pokemon TCG API located at pokemo
     install_requires=[
         # add your dependencies here
         # remember to use 'package-name>=x.y.z,<x.y+1.0' notation (this way you get bugfixes)
+        'dacite>=1.6.0',
     ],
     extras_require={
         'tests': tests_require,
