@@ -26,7 +26,7 @@ class QueryBuilder(object):
             object: Instance of the resource type
         """
         url = "{}/{}/{}".format(__endpoint__, self.type.RESOURCE, id)
-        response = RestClient.get(url)[self.type.RESOURCE[:-1]]
+        response = RestClient.get(url)['data']
         return self.type(response)
 
     def where(self, **kwargs):
@@ -58,7 +58,7 @@ class QueryBuilder(object):
             fetch_all = False
 
         while True:
-            response = RestClient.get(url, self.params)[self.type.RESOURCE]
+            response = RestClient.get(url, self.params)['data']
             if len(response) > 0:
                 for item in response:
                     list.append(self.type(item))
@@ -80,4 +80,4 @@ class QueryBuilder(object):
             array of str: Array of resources
         """
         url = "{}/{}".format(__endpoint__, self.type.RESOURCE)
-        return RestClient.get(url, self.params)[self.type.RESOURCE]
+        return RestClient.get(url, self.params)['data']

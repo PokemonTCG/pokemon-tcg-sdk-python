@@ -9,13 +9,20 @@
 # Copyright (c) 2016, Andrew Backes <backes.andrew@gmail.com>
 
 import json
+import os
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 from urllib.parse import urlencode
 
 class RestClient(object):
-    @staticmethod
-    def get(url, params={}):
+    api_key = None
+
+    @classmethod
+    def configure(cls, api_key):
+        cls.api_key = api_key
+
+    @classmethod
+    def get(cls, url, params={}):
         """Invoke an HTTP GET request on a url
         
         Args:
@@ -30,7 +37,12 @@ class RestClient(object):
             request_url = "{}?{}".format(url, urlencode(params))
 
         try:
-            req = Request(request_url, headers={ 'User-Agent': 'Mozilla/5.0' })
+            headers = { 'User-Agent': 'Mozilla/5.0' }
+            api_key = cls.api_key if cls.api_key is not None else os.getenv('POKEMONTCG_IO_API_KEY')
+            if api_key:
+                headers['X-Api-Key'] = api_key
+
+            req = Request(request_url, headers=headers)
             response = json.loads(urlopen(req).read().decode("utf-8"))
 
             return response

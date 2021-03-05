@@ -15,17 +15,16 @@ class Set(object):
     RESOURCE = 'sets'
 
     def __init__(self, response_dict={}):
+        self.id = response_dict.get('id')
+        self.images = response_dict.get('images')
+        self.legalities = response_dict.get('legalities')
         self.name = response_dict.get('name')
-        self.code = response_dict.get('code')
-        self.ptcgo_code = response_dict.get('ptcgoCode')
+        self.printedTotal = response_dict.get('printedTotal')
+        self.ptcgoCode = response_dict.get('ptcgoCode')
+        self.releaseDate = response_dict.get('releaseDate')
         self.series = response_dict.get('series')
-        self.total_cards = response_dict.get('totalCards')
-        self.standard_legal = response_dict.get('standardLegal')
-        self.expanded_legal = response_dict.get('expandedLegal')
-        self.release_date = response_dict.get('releaseDate')
-        self.symbol_url = response_dict.get('symbolUrl')
-        self.logo_url = response_dict.get('logoUrl')
-        self.updated_at = response_dict.get('updatedAt')
+        self.total = response_dict.get('total')
+        self.updatedAt = response_dict.get('updatedAt')
 
     @staticmethod
     def find(id):

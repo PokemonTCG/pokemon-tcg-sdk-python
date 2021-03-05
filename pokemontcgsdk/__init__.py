@@ -14,6 +14,7 @@ from pokemontcgsdk.set import Set
 from pokemontcgsdk.subtype import Subtype
 from pokemontcgsdk.supertype import Supertype
 from pokemontcgsdk.type import Type
+from pokemontcgsdk.rarity import Rarity
 from pokemontcgsdk.restclient import RestClient
 from pokemontcgsdk.restclient import PokemonTcgException
 from pokemontcgsdk.querybuilder import QueryBuilder

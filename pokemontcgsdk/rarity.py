@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # This file is part of pokemontcgsdk.
 # https://github.com/PokemonTCG/pokemon-tcg-sdk-python
 
@@ -5,18 +8,11 @@
 # http://www.opensource.org/licenses/MIT-license
 # Copyright (c) 2016, Andrew Backes <backes.andrew@gmail.com>
 
-language: python
+from pokemontcgsdk.querybuilder import QueryBuilder
 
-python:
-    - "3.9"
+class Rarity(object):
+    RESOURCE = 'rarities'
 
-install:
-    # install python requirements
-    - make setup
-
-script:
-    # run tests
-    - make test
-
-after_success:
-    - coveralls
+    @staticmethod
+    def all():
+        return QueryBuilder(Rarity).array()
