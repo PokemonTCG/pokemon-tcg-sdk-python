@@ -43,12 +43,20 @@ class Card():
 
     @staticmethod
     def find(id):
-        return QueryBuilder(Card).find(id)
+        return QueryBuilder(Card, Card.transform).find(id)
 
     @staticmethod
     def where(**kwargs):
-        return QueryBuilder(Card).where(**kwargs)
+        return QueryBuilder(Card, Card.transform).where(**kwargs)
 
     @staticmethod
     def all():
-        return QueryBuilder(Card).all()
+        return QueryBuilder(Card, Card.transform).all()
+
+    @staticmethod
+    def transform(response):
+        if response.get('tcgplayer', {}).get('prices', {}).get('1stEditionNormal'):
+            response['tcgplayer']['prices']['firstEditionNormal'] = response['tcgplayer']['prices'].pop('1stEditionNormal')
+        if response.get('tcgplayer', {}).get('prices', {}).get('1stEditionHolofoil'):
+            response['tcgplayer']['prices']['firstEditionHolofoil'] = response['tcgplayer']['prices'].pop('1stEditionHolofoil')
+        return response
