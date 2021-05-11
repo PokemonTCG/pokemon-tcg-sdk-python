@@ -4,9 +4,10 @@ from pokemontcgsdk.restclient import RestClient
 from pokemontcgsdk.config import __endpoint__
 
 class QueryBuilder():
-    def __init__(self, type):
+    def __init__(self, type, transform=None):
         self.params = {}
         self.type = type
+        self.transform = transform
 
     def find(self, id):
         """Get a resource by its id
@@ -18,6 +19,11 @@ class QueryBuilder():
         """
         url = "{}/{}/{}".format(__endpoint__, self.type.RESOURCE, id)
         response = RestClient.get(url)['data']
+
+        # Transform json keys into names that are safe for python properties
+        if self.transform:
+            response = self.transform(response)
+
         return from_dict(self.type, response)
 
     def where(self, **kwargs):
@@ -52,6 +58,8 @@ class QueryBuilder():
             response = RestClient.get(url, self.params)['data']
             if len(response) > 0:
                 for item in response:
+                    if self.transform:
+                        response = self.transform(item)
                     list.append(from_dict(self.type, item))
 
                 if not fetch_all:

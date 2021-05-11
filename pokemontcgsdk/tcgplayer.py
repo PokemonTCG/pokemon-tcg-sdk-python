@@ -14,6 +14,9 @@ class TCGPrices():
     normal: Optional[TCGPrice]
     holofoil: Optional[TCGPrice]
     reverseHolofoil: Optional[TCGPrice]
+    firstEditionHolofoil: Optional[TCGPrice]
+    firstEditionNormal: Optional[TCGPrice]
+
 
 @dataclass
 class TCGPlayer():
