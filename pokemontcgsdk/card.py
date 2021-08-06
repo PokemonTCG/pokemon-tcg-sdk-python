@@ -10,6 +10,7 @@ from pokemontcgsdk.querybuilder import QueryBuilder
 from pokemontcgsdk.resistance import Resistance
 from pokemontcgsdk.set import Set
 from pokemontcgsdk.tcgplayer import TCGPlayer
+from pokemontcgsdk.cardmarket import Cardmarket
 from pokemontcgsdk.weakness import Weakness
 
 @dataclass
@@ -20,6 +21,7 @@ class Card():
     artist: Optional[str]
     ancientTrait: Optional[AncientTrait]
     attacks: Optional[List[Attack]]
+    cardmarket: Optional[Cardmarket]
     convertedRetreatCost: Optional[int]
     evolvesFrom: Optional[str]
     flavorText: Optional[str]
