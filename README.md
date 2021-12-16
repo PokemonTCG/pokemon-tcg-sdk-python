@@ -67,6 +67,7 @@ RestClient.configure('12345678-1234-1234-1234-123456789ABC')
     id
     images
     legalities
+    regulationMark
     name
     nationalPokedexNumbers
     number

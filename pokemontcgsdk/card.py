@@ -29,6 +29,7 @@ class Card():
     id: str
     images: CardImage
     legalities: Legality
+    regulationMark: Optional[str]
     name: str
     nationalPokedexNumbers: Optional[List[int]]
     number: Optional[str]
