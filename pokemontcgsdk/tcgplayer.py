@@ -22,4 +22,4 @@ class TCGPrices():
 class TCGPlayer():
     url: str
     updatedAt: str
-    prices: TCGPrices
+    prices: Optional[TCGPrices]
