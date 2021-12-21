@@ -24,4 +24,4 @@ class CardmarketPrices():
 class Cardmarket():
     url: str
     updatedAt: str
-    prices: CardmarketPrices
+    prices: Optional[CardmarketPrices]

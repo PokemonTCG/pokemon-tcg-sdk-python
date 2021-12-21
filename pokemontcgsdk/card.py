@@ -32,14 +32,15 @@ class Card():
     regulationMark: Optional[str]
     name: str
     nationalPokedexNumbers: Optional[List[int]]
-    number: Optional[str]
+    number: str
     rarity: Optional[str]
+    regulationMark: Optional[str]
     resistances: Optional[List[Resistance]]
     retreatCost: Optional[List[str]]
     rules: Optional[List[str]]
     set: Set
     subtypes: Optional[List[str]]
-    supertype: Optional[str]
+    supertype: str
     tcgplayer: Optional[TCGPlayer]
     types: Optional[List[str]]
     weaknesses: Optional[List[Weakness]]
